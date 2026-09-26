@@ -40,7 +40,7 @@
     <section class="blue-strip"><div class="wrap strip-inner"><span>"Non festinatum, sed accuratum."</span><span class="strip-rule"></span><span class="strip-meta">Mathématiques · TD · cours</span></div></section>
 
     <section class="section wrap" id="sommaire">
-      <div class="section-heading reveal is-visible"><div><p class="eyebrow">01 · Sommaire</p><h2>Chapitres</h2></div><p class="section-intro">Programme MPSI · 30 chapitres. Faites défiler horizontalement.</p></div>
+      <div class="section-heading reveal is-visible"><div><p class="eyebrow">01 · Sommaire</p><h2>Chapitres</h2></div><p class="section-intro">Programme MPSI. Faites défiler horizontalement.</p></div>
       <div class="toc-groups" id="tocGroups"></div>
     </section>
 
@@ -58,7 +58,7 @@
     <section class="detail-panel" id="chapterPanel" hidden>
       <div class="wrap panel-inner">
         <div class="panel-head">
-          <div><p class="eyebrow" id="panelKicker">Chapitre</p><h2 id="panelTitle">Rudiments de logique</h2></div>
+          <div><p class="eyebrow" id="panelKicker">Chapitre</p><h2 id="panelTitle"></h2></div>
           <button class="close-btn" id="closePanel" aria-label="Fermer">×</button>
         </div>
         <div class="td-list" id="tdList"></div>
@@ -104,193 +104,189 @@
     { id:'probabilites', label:'Probabilités', letter:'C' }
   ];
 
-  const MANSUY = 'https://mathieu-mansuy.fr/pdf/';
-  const CHAMPO = 'https://www.mp2i-champo.fr/TD/';
-  const KACZ = 'https://laurentkaczmarek.fr/cours/';
-  const BERTAULT = 'https://christophebertault.fr/documents/coursetexercices/';
+  // ---- Raccourcis vers les répertoires de chaque prof ----
+  const M = 'https://mathieu-mansuy.fr/pdf/';
+  const C = 'https://www.mp2i-champo.fr/TD/';
+  const K = 'https://laurentkaczmarek.fr/cours/';
+  const B = 'https://christophebertault.fr/documents/coursetexercices/';
 
   const chapters = [
-    // ---------- ALGÈBRE ----------
-    { key:'logique', cat:'algebre', n:1, title:'Logique', keywords:'logique raisonnement quantificateurs connecteurs',
+    // ============== ALGÈBRE ==============
+    { key:'logique', cat:'algebre', title:'Logique et raisonnements', keywords:'logique quantificateurs connecteurs raisonnement récurrence',
       tds:[
-        ['Mansuy','TD','https://mathieu-mansuy.fr/pdf/PCSI5-TD1.pdf',null],
-        ['Champollion','TD 1','https://www.mp2i-champo.fr/TD/TD1.pdf',null],
-        ['Kaczmarek','TD',KACZ+'ExercicesLogiqueEtRaisonnementsMathematiques.pdf',null],
-        ['Bertault','TD',BERTAULT+'Exercices%20-%20Rudiments%20de%20logique%20et%20vocabulaire%20ensembliste.pdf',BERTAULT+'Exercices%20indications%20-%20Rudiments%20de%20logique%20et%20vocabulaire%20ensembliste.pdf']
+        ['Mansuy','TD 1',M+'PCSI5-TD1.pdf',null],
+        ['Champollion','TD 1',C+'TD1.pdf',null],
+        ['Kaczmarek','TD',K+'ExercicesLogiqueEtRaisonnementsMathematiques.pdf',null],
+        ['Bertault','TD',B+'Exercices%20-%20Rudiments%20de%20logique%20et%20vocabulaire%20ensembliste.pdf',B+'Exercices%20indications%20-%20Rudiments%20de%20logique%20et%20vocabulaire%20ensembliste.pdf']
       ]},
-    { key:'calculs', cat:'algebre', n:2, title:'Calculs algébriques', keywords:'calcul somme produit binôme télescopique récurrence',
+    { key:'ensembles', cat:'algebre', title:'Ensembles et applications', keywords:'ensemble partie union intersection produit cartésien application injection surjection bijection',
       tds:[
-        ['Mansuy','TD','https://mathieu-mansuy.fr/pdf/PCSI5-TD3.pdf',null],
-        ['Champollion','TD 2','https://www.mp2i-champo.fr/TD/TD2.pdf',null],
-        ['Champollion','TD 3','https://www.mp2i-champo.fr/TD/TD3.pdf',null],
-        ['Kaczmarek','TD',KACZ+'ExercicesCalculsAlgebriques.pdf',null],
-        ['Bertault','TD',BERTAULT+'Exercices%20-%20Calculs%20algebriques%20dans%20R.pdf',BERTAULT+'Exercices%20indications%20-%20Calculs%20algebriques%20dans%20R.pdf']
+        ['Champollion','TD 5',C+'TD5.pdf',null],
+        ['Kaczmarek','TD',K+'ALG2TheorieDesEnsembles.pdf',null],
+        ['Bertault','TD',B+'Exercices%20-%20Relations%20binaires%20et%20applications.pdf',B+'Exercices%20indications%20-%20Relations%20binaires%20et%20applications.pdf']
       ]},
-    { key:'fonctions', cat:'analyse', n:3, title:'Fonctions réelles', keywords:'fonction réelle parité monotonie bornes image',
+    { key:'calculs', cat:'algebre', title:'Calculs algébriques', keywords:'somme produit binôme télescopique récurrence factorielle',
       tds:[
-        ['Champollion','TD 4','https://www.mp2i-champo.fr/TD/TD4.pdf',null],
-        ['Bertault','TD',BERTAULT+'Exercices%20-%20Rappels%20et%20complements%20sur%20les%20fonctions%20reelles.pdf',BERTAULT+'Exercices%20indications%20-%20Rappels%20et%20complements%20sur%20les%20fonctions%20reelles.pdf']
+        ['Mansuy','TD 3',M+'PCSI5-TD3.pdf',null],
+        ['Champollion','TD 2',C+'TD2.pdf',null],
+        ['Champollion','TD 3',C+'TD3.pdf',null],
+        ['Kaczmarek','TD',K+'ExercicesCalculsAlgebriques.pdf',null],
+        ['Bertault','TD',B+'Exercices%20-%20Calculs%20algebriques%20dans%20R.pdf',B+'Exercices%20indications%20-%20Calculs%20algebriques%20dans%20R.pdf']
       ]},
-    { key:'ensembles', cat:'algebre', n:4, title:'Ensembles', keywords:'ensemble partie union intersection produit cartésien',
+    { key:'complexes', cat:'algebre', title:'Nombres complexes', keywords:'complexe module argument forme trigonométrique exponentielle racine',
       tds:[
-        ['Champollion','TD 5','https://www.mp2i-champo.fr/TD/TD5.pdf',null],
-        ['Kaczmarek','TD',KACZ+'ALG2TheorieDesEnsembles.pdf',null]
+        ['Mansuy','TD 5',M+'PCSI5-TD5.pdf',null],
+        ['Champollion','TD 7',C+'TD7.pdf',null],
+        ['Kaczmarek','TD',K+'ExercicesNombresComplexes.pdf',null],
+        ['Bertault','TD',B+'Exercices%20-%20Nombres%20complexes.pdf',B+'Exercices%20indications%20-%20Nombres%20complexes.pdf']
       ]},
-    { key:'trigo', cat:'analyse', n:5, title:'Fonctions circulaires', keywords:'trigonométrie cos sin tan arccos arcsin arctan',
+    { key:'polynomes', cat:'algebre', title:'Polynômes et fractions rationnelles', keywords:'polynôme racine degré factorisation fraction rationnelle éléments simples',
       tds:[
-        ['Champollion','TD 6','https://www.mp2i-champo.fr/TD/TD6.pdf',null]
+        ['Mansuy','TD 17',M+'PCSI5-TD17.pdf',null],
+        ['Champollion','TD 8',C+'TD8.pdf',null],
+        ['Champollion','TD 18',C+'TD18.pdf',null],
+        ['Kaczmarek','TD',K+'ALG11Polynomes.pdf',null],
+        ['Bertault','TD',B+'Exercices%20-%20Arithmetique%20des%20polynomes%20et%20fractions%20rationnelles.pdf',B+'Exercices%20indications%20-%20Arithmetique%20des%20polynomes%20et%20fractions%20rationnelles.pdf']
       ]},
-    { key:'complexes', cat:'algebre', n:6, title:'Nombres complexes', keywords:'complexe module argument forme trigonométrique exponentielle racine',
+    { key:'arithmetique', cat:'algebre', title:'Arithmétique des entiers', keywords:'entier division euclidienne pgcd ppcm premier bezout congruence',
       tds:[
-        ['Mansuy','TD','https://mathieu-mansuy.fr/pdf/PCSI5-TD5.pdf',null],
-        ['Champollion','TD 7','https://www.mp2i-champo.fr/TD/TD7.pdf',null],
-        ['Kaczmarek','TD',KACZ+'ExercicesNombresComplexes.pdf',null],
-        ['Bertault','TD',BERTAULT+'Exercices%20-%20Nombres%20complexes.pdf',BERTAULT+'Exercices%20indications%20-%20Nombres%20complexes.pdf']
+        ['Mansuy','TD 12',M+'PCSI5-TD12.pdf',null],
+        ['Champollion','TD 16',C+'TD16.pdf',null],
+        ['Kaczmarek','TD',K+'ExercicesArithmetique.pdf',null],
+        ['Bertault','TD',B+'Exercices%20-%20Arithmetique%20des%20entiers.pdf',B+'Exercices%20indications%20-%20Arithmetique%20des%20entiers.pdf']
       ]},
-    { key:'fractions', cat:'algebre', n:7, title:'Fractions rationnelles', keywords:'fraction rationnelle décomposition éléments simples pôles',
+    { key:'groupes', cat:'algebre', title:'Groupes et anneaux', keywords:'groupe anneau morphisme sous-groupe idéal corps',
       tds:[
-        ['Mansuy','TD','https://mathieu-mansuy.fr/pdf/PCSI5-TD17.pdf',null],
-        ['Champollion','TD 8','https://www.mp2i-champo.fr/TD/TD8.pdf',null],
-        ['Bertault','TD',BERTAULT+'Exercices%20-%20Arithmetique%20des%20polynomes%20et%20fractions%20rationnelles.pdf',BERTAULT+'Exercices%20indications%20-%20Arithmetique%20des%20polynomes%20et%20fractions%20rationnelles.pdf']
+        ['Mansuy','TD 19',M+'PCSI5-TD19.pdf',null],
+        ['Champollion','TD 15',C+'TD15.pdf',null],
+        ['Bertault','TD',B+'Exercices%20-%20Groupes%20et%20anneaux.pdf',B+'Exercices%20indications%20-%20Groupes%20et%20anneaux.pdf']
       ]},
-    { key:'integration-calcul', cat:'analyse', n:8, title:'Théorème fondamental de l’analyse', keywords:'intégrale primitive dérivée fondamentale',
+    { key:'matrices', cat:'algebre', title:'Matrices et systèmes linéaires', keywords:'matrice produit transposée trace inverse système linéaire gauss',
       tds:[
-        ['Mansuy','TD','https://mathieu-mansuy.fr/pdf/PCSI5-TD6.pdf',null],
-        ['Champollion','TD 9','https://www.mp2i-champo.fr/TD/TD9.pdf',null],
-        ['Bertault','TD',BERTAULT+'Exercices%20-%20Techniques%20elementaires%20de%20calcul%20integral.pdf',BERTAULT+'Exercices%20indications%20-%20Techniques%20elementaires%20de%20calcul%20integral.pdf']
+        ['Mansuy','TD 13',M+'PCSI5-TD13.pdf',null],
+        ['Champollion','TD 14',C+'TD14.pdf',null],
+        ['Kaczmarek','TD',K+'ExercicesCalculMatriciel.pdf',null],
+        ['Bertault','TD',B+'Exercices%20-%20Matrices%20et%20systemes%20lineaires.pdf',B+'Exercices%20indications%20-%20Matrices%20et%20systemes%20lineaires.pdf']
       ]},
-    { key:'eq-diff', cat:'analyse', n:9, title:'Équations différentielles', keywords:'équation différentielle linéaire homogène second ordre',
+    { key:'ev-al', cat:'algebre', title:'Espaces vectoriels et applications linéaires', keywords:'espace vectoriel base dimension application linéaire noyau image rang',
       tds:[
-        ['Mansuy','TD','https://mathieu-mansuy.fr/pdf/PCSI5-TD7.pdf',null],
-        ['Champollion','TD 10','https://www.mp2i-champo.fr/TD/TD10.pdf',null],
-        ['Bertault','TD',BERTAULT+'Exercices%20-%20Equations%20differentielles%20lineaires.pdf',BERTAULT+'Exercices%20indications%20-%20Equations%20differentielles%20lineaires.pdf']
+        ['Mansuy','TD 18',M+'PCSI5-TD18.pdf',null],
+        ['Mansuy','TD 21',M+'PCSI5-TD21.pdf',null],
+        ['Champollion','TD 20',C+'TD20.pdf',null],
+        ['Kaczmarek','TD',K+'ExercicesEspacesVectoriels.pdf',null],
+        ['Bertault','TD',B+'Exercices%20-%20Espaces%20vectoriels.pdf',B+'Exercices%20indications%20-%20Espaces%20vectoriels.pdf'],
+        ['Bertault','TD',B+'Exercices%20-%20Applications%20lineaires.pdf',B+'Exercices%20indications%20-%20Applications%20lineaires.pdf']
       ]},
-    { key:'relations', cat:'algebre', n:10, title:'Applications, relations binaires', keywords:'relation équivalence ordre application injection surjection bijection',
+    { key:'dimension', cat:'algebre', title:'Dimension et sommes de sev', keywords:'dimension somme directe rang supplémentaire hyperplan forme linéaire',
       tds:[
-        ['Mansuy','TD','https://mathieu-mansuy.fr/pdf/PCSI5-TD9.pdf',null],
-        ['Champollion','TD 11','https://www.mp2i-champo.fr/TD/TD11.pdf',null],
-        ['Bertault','TD',BERTAULT+'Exercices%20-%20Relations%20binaires%20et%20applications.pdf',BERTAULT+'Exercices%20indications%20-%20Relations%20binaires%20et%20applications.pdf']
+        ['Champollion','TD 22',C+'TD22.pdf',null]
       ]},
-    { key:'bornes', cat:'analyse', n:11, title:'Bornes supérieures et inférieures', keywords:'borne supérieure inférieure majorant minorant densité',
+    { key:'cardinal', cat:'algebre', title:'Cardinal et dénombrement', keywords:'cardinal dénombrement combinaison arrangement injection surjection',
       tds:[
-        ['Champollion','TD 12','https://www.mp2i-champo.fr/TD/TD12.pdf',null]
+        ['Mansuy','TD 24',M+'PCSI5-TD24.pdf',null],
+        ['Champollion','TD 25',C+'TD25.pdf',null],
+        ['Kaczmarek','TD',K+'ExercicesDenombrement.pdf',null],
+        ['Bertault','TD',B+'Exercices%20-%20Denombrement.pdf',B+'Exercices%20indications%20-%20Denombrement.pdf']
       ]},
-    { key:'suites', cat:'analyse', n:12, title:'Suites réelles', keywords:'suite convergence limite récurrence monotone adjacente',
+    { key:'repr-matricielle', cat:'algebre', title:'Représentations matricielles', keywords:'matrice application linéaire changement de base semblable équivalent',
       tds:[
-        ['Mansuy','TD','https://mathieu-mansuy.fr/pdf/PCSI5-TD11.pdf',null],
-        ['Champollion','TD 13','https://www.mp2i-champo.fr/TD/TD13.pdf',null],
-        ['Bertault','TD',BERTAULT+'Exercices%20-%20Suites%20reelles.pdf',BERTAULT+'Exercices%20indications%20-%20Suites%20reelles.pdf']
+        ['Mansuy','TD 23',M+'PCSI5-TD23.pdf',null],
+        ['Champollion','TD 26',C+'TD26.pdf',null],
+        ['Bertault','TD',B+'Exercices%20-%20Representation%20matricielle%20des%20applications%20lineaires.pdf',B+'Exercices%20indications%20-%20Representation%20matricielle%20des%20applications%20lineaires.pdf']
       ]},
-    { key:'matrices', cat:'algebre', n:13, title:'Matrices', keywords:'matrice somme produit transposée trace inverse',
+    { key:'determinants', cat:'algebre', title:'Déterminants', keywords:'déterminant matrice multilinéaire alternée calcul',
       tds:[
-        ['Mansuy','TD','https://mathieu-mansuy.fr/pdf/PCSI5-TD13.pdf',null],
-        ['Champollion','TD 14','https://www.mp2i-champo.fr/TD/TD14.pdf',null],
-        ['Kaczmarek','TD',KACZ+'ExercicesCalculMatriciel.pdf',null],
-        ['Bertault','TD',BERTAULT+'Exercices%20-%20Matrices%20et%20systemes%20lineaires.pdf',BERTAULT+'Exercices%20indications%20-%20Matrices%20et%20systemes%20lineaires.pdf']
+        ['Mansuy','TD 24',M+'PCSI5-TD24.pdf',null],
+        ['Bertault','TD',B+'Exercices%20-%20Determinants.pdf',B+'Exercices%20indications%20-%20Determinants.pdf']
       ]},
-    { key:'groupes', cat:'algebre', n:14, title:'Groupes et anneaux', keywords:'groupe anneau morphisme sous-groupe idéal corps',
+    { key:'prehilbertiens', cat:'algebre', title:'Espaces préhilbertiens', keywords:'préhilbertien produit scalaire orthogonal projection gram-schmidt cauchy-schwarz',
       tds:[
-        ['Mansuy','TD','https://mathieu-mansuy.fr/pdf/PCSI5-TD19.pdf',null],
-        ['Champollion','TD 15','https://www.mp2i-champo.fr/TD/TD15.pdf',null],
-        ['Bertault','TD',BERTAULT+'Exercices%20-%20Groupes%20et%20anneaux.pdf',BERTAULT+'Exercices%20indications%20-%20Groupes%20et%20anneaux.pdf']
+        ['Mansuy','TD 25',M+'PCSI5-TD25.pdf',null],
+        ['Bertault','TD',B+'Exercices%20-%20Espaces%20prehilbertiens%20reels.pdf',B+'Exercices%20indications%20-%20Espaces%20prehilbertiens%20reels.pdf']
       ]},
-    { key:'arithmetique', cat:'algebre', n:15, title:'Arithmétique des entiers', keywords:'arithmétique entier division euclidienne pgcd ppcm premier bezout',
+
+    // ============== ANALYSE ==============
+    { key:'fonctions', cat:'analyse', title:'Fonctions réelles', keywords:'fonction parité monotonie bornes image réciproque',
       tds:[
-        ['Mansuy','TD','https://mathieu-mansuy.fr/pdf/PCSI5-TD12.pdf',null],
-        ['Champollion','TD 16','https://www.mp2i-champo.fr/TD/TD16.pdf',null],
-        ['Kaczmarek','TD',KACZ+'ExercicesArithmetique.pdf',null],
-        ['Bertault','TD',BERTAULT+'Exercices%20-%20Arithmetique%20des%20entiers.pdf',BERTAULT+'Exercices%20indications%20-%20Arithmetique%20des%20entiers.pdf']
+        ['Mansuy','TD 2',M+'PCSI5-TD2.pdf',null],
+        ['Champollion','TD 4',C+'TD4.pdf',null],
+        ['Bertault','TD',B+'Exercices%20-%20Rappels%20et%20complements%20sur%20les%20fonctions%20reelles.pdf',B+'Exercices%20indications%20-%20Rappels%20et%20complements%20sur%20les%20fonctions%20reelles.pdf']
       ]},
-    { key:'limites', cat:'analyse', n:16, title:'Limites et continuité', keywords:'limite continuité théorème valeurs intermédiaires image compact',
+    { key:'trigo', cat:'analyse', title:'Fonctions circulaires et hyperboliques', keywords:'trigonométrie cos sin tan arccos arcsin arctan ch sh th',
       tds:[
-        ['Mansuy','TD','https://mathieu-mansuy.fr/pdf/PCSI5-TD14.pdf',null],
-        ['Champollion','TD 17','https://www.mp2i-champo.fr/TD/TD17.pdf',null],
-        ['Bertault','TD',BERTAULT+'Exercices%20-%20Limites%20et%20continuite.pdf',BERTAULT+'Exercices%20indications%20-%20Limites%20et%20continuite.pdf']
+        ['Champollion','TD 6',C+'TD6.pdf',null]
       ]},
-    { key:'polynomes', cat:'algebre', n:17, title:'Polynômes', keywords:'polynôme racine degré division factorisation irréductible',
+    { key:'bornes', cat:'analyse', title:'Bornes supérieures et inférieures', keywords:'borne supérieure inférieure majorant minorant densité',
       tds:[
-        ['Champollion','TD 18','https://www.mp2i-champo.fr/TD/TD18.pdf',null],
-        ['Kaczmarek','TD',KACZ+'ALG11Polynomes.pdf',null],
-        ['Bertault','TD',BERTAULT+'Exercices%20-%20Polynomes%20et%20racines.pdf',BERTAULT+'Exercices%20indications%20-%20Polynomes%20et%20racines.pdf']
+        ['Champollion','TD 12',C+'TD12.pdf',null]
       ]},
-    { key:'comparaison', cat:'analyse', n:18, title:'Comparaison des suites et fonctions', keywords:'asymptotique comparaison domination négligeable équivalent',
+    { key:'suites', cat:'analyse', title:'Suites réelles', keywords:'suite convergence limite récurrence monotone adjacente bolzano-weierstrass',
       tds:[
-        ['Mansuy','TD','https://mathieu-mansuy.fr/pdf/PCSI5-TD16.pdf',null],
-        ['Champollion','TD 19','https://www.mp2i-champo.fr/TD/TD19.pdf',null],
-        ['Bertault','TD',BERTAULT+'Exercices%20-%20Analyse%20asymptotique%20de%20niveau%201.pdf',BERTAULT+'Exercices%20indications%20-%20Analyse%20asymptotique%20de%20niveau%201.pdf']
+        ['Mansuy','TD 4',M+'PCSI5-TD4.pdf',null],
+        ['Mansuy','TD 11',M+'PCSI5-TD11.pdf',null],
+        ['Champollion','TD 13',C+'TD13.pdf',null],
+        ['Bertault','TD',B+'Exercices%20-%20Suites%20reelles.pdf',B+'Exercices%20indications%20-%20Suites%20reelles.pdf']
       ]},
-    { key:'espaces-vectoriels', cat:'algebre', n:19, title:'Espaces vectoriels et applications linéaires', keywords:'espace vectoriel base dimension application linéaire noyau image rang',
+    { key:'limites', cat:'analyse', title:'Limites et continuité', keywords:'limite continuité théorème valeurs intermédiaires image compact',
       tds:[
-        ['Mansuy','TD','https://mathieu-mansuy.fr/pdf/PCSI5-TD18.pdf',null],
-        ['Mansuy','TD','https://mathieu-mansuy.fr/pdf/PCSI5-TD21.pdf',null],
-        ['Champollion','TD 20','https://www.mp2i-champo.fr/TD/TD20.pdf',null],
-        ['Kaczmarek','TD',KACZ+'ExercicesEspacesVectoriels.pdf',null],
-        ['Bertault','TD',BERTAULT+'Exercices%20-%20Espaces%20vectoriels.pdf',BERTAULT+'Exercices%20indications%20-%20Espaces%20vectoriels.pdf']
+        ['Mansuy','TD 14',M+'PCSI5-TD14.pdf',null],
+        ['Champollion','TD 17',C+'TD17.pdf',null],
+        ['Bertault','TD',B+'Exercices%20-%20Limites%20et%20continuite.pdf',B+'Exercices%20indications%20-%20Limites%20et%20continuite.pdf']
       ]},
-    { key:'dl', cat:'analyse', n:20, title:'Développements limités', keywords:'développement limité taylor young asymptotique',
+    { key:'derivabilite', cat:'analyse', title:'Dérivabilité et convexité', keywords:'dérivée rolle accroissements finis taylor convexité jensen',
       tds:[
-        ['Champollion','TD 21','https://www.mp2i-champo.fr/TD/TD21.pdf',null],
-        ['Bertault','TD',BERTAULT+'Exercices%20-%20Analyse%20asymptotique%20de%20niveau%202.pdf',BERTAULT+'Exercices%20indications%20-%20Analyse%20asymptotique%20de%20niveau%202.pdf']
+        ['Mansuy','TD 15',M+'PCSI5-TD15.pdf',null],
+        ['Champollion','TD 23',C+'TD23.pdf',null],
+        ['Champollion','TD 24',C+'TD24.pdf',null],
+        ['Bertault','TD',B+'Exercices%20-%20Derivabilite%20et%20convexite.pdf',B+'Exercices%20indications%20-%20Derivabilite%20et%20convexite.pdf']
       ]},
-    { key:'dimension', cat:'algebre', n:21, title:'Dimension et sommes de sev', keywords:'dimension somme directe rang supplémentaire hyperplan',
+    { key:'comparaison', cat:'analyse', title:'Comparaison et analyse asymptotique', keywords:'comparaison domination négligeable équivalent développement limité taylor young',
       tds:[
-        ['Champollion','TD 22','https://www.mp2i-champo.fr/TD/TD22.pdf',null],
-        ['Bertault','TD',BERTAULT+'Exercices%20-%20Applications%20lineaires.pdf',BERTAULT+'Exercices%20indications%20-%20Applications%20lineaires.pdf']
+        ['Mansuy','TD 16',M+'PCSI5-TD16.pdf',null],
+        ['Champollion','TD 19',C+'TD19.pdf',null],
+        ['Champollion','TD 21',C+'TD21.pdf',null],
+        ['Bertault','TD',B+'Exercices%20-%20Analyse%20asymptotique%20de%20niveau%201.pdf',B+'Exercices%20indications%20-%20Analyse%20asymptotique%20de%20niveau%201.pdf'],
+        ['Bertault','TD',B+'Exercices%20-%20Analyse%20asymptotique%20de%20niveau%202.pdf',B+'Exercices%20indications%20-%20Analyse%20asymptotique%20de%20niveau%202.pdf']
       ]},
-    { key:'derivabilite', cat:'analyse', n:22, title:'Dérivées successives', keywords:'dérivée rolle accroissements finis taylor leibniz',
+    { key:'integration', cat:'analyse', title:'Intégration sur un segment', keywords:'intégrale primitive segment riemann somme subdivisions',
       tds:[
-        ['Mansuy','TD','https://mathieu-mansuy.fr/pdf/PCSI5-TD15.pdf',null],
-        ['Champollion','TD 23','https://www.mp2i-champo.fr/TD/TD23.pdf',null],
-        ['Bertault','TD',BERTAULT+'Exercices%20-%20Derivabilite%20et%20convexite.pdf',BERTAULT+'Exercices%20indications%20-%20Derivabilite%20et%20convexite.pdf']
+        ['Mansuy','TD 6',M+'PCSI5-TD6.pdf',null],
+        ['Mansuy','TD 20',M+'PCSI5-TD20.pdf',null],
+        ['Champollion','TD 9',C+'TD9.pdf',null],
+        ['Champollion','TD 30',C+'TD30.pdf',null],
+        ['Bertault','TD',B+'Exercices%20-%20Techniques%20elementaires%20de%20calcul%20integral.pdf',B+'Exercices%20indications%20-%20Techniques%20elementaires%20de%20calcul%20integral.pdf'],
+        ['Bertault','TD',B+'Exercices%20-%20Integration%20sur%20un%20segment.pdf',B+'Exercices%20indications%20-%20Integration%20sur%20un%20segment.pdf']
       ]},
-    { key:'convexite', cat:'analyse', n:23, title:'Convexité', keywords:'convexe concave jensen corde tangente',
+    { key:'eq-diff', cat:'analyse', title:'Équations différentielles linéaires', keywords:'équation différentielle linéaire homogène second ordre',
       tds:[
-        ['Champollion','TD 24','https://www.mp2i-champo.fr/TD/TD24.pdf',null]
+        ['Mansuy','TD 7',M+'PCSI5-TD7.pdf',null],
+        ['Champollion','TD 10',C+'TD10.pdf',null],
+        ['Bertault','TD',B+'Exercices%20-%20Equations%20differentielles%20lineaires.pdf',B+'Exercices%20indications%20-%20Equations%20differentielles%20lineaires.pdf']
       ]},
-    { key:'cardinal', cat:'algebre', n:24, title:'Cardinal, dénombrement', keywords:'cardinal dénombrement combinaison arrangement injection surjection bijection',
+    { key:'series', cat:'analyse', title:'Séries et familles sommables', keywords:'série convergence somme famille sommable absolue riemann',
       tds:[
-        ['Mansuy','TD','https://mathieu-mansuy.fr/pdf/PCSI5-TD24.pdf',null],
-        ['Champollion','TD 25','https://www.mp2i-champo.fr/TD/TD25.pdf',null],
-        ['Kaczmarek','TD',KACZ+'ExercicesDenombrement.pdf',null],
-        ['Bertault','TD',BERTAULT+'Exercices%20-%20Denombrement.pdf',BERTAULT+'Exercices%20indications%20-%20Denombrement.pdf']
+        ['Mansuy','TD 22',M+'PCSI5-TD22.pdf',null],
+        ['Champollion','TD 28',C+'TD28.pdf',null],
+        ['Bertault','TD',B+'Exercices%20-%20Series%20et%20familles%20sommables.pdf',B+'Exercices%20indications%20-%20Series%20et%20familles%20sommables.pdf']
       ]},
-    { key:'représentation-matricielle', cat:'algebre', n:25, title:'Représentations matricielles', keywords:'matrice application linéaire changement de base semblable équivalent',
+
+    // ============== PROBABILITÉS ==============
+    { key:'probabilites', cat:'probabilites', title:'Probabilités finies', keywords:'probabilité univers fini événement conditionnelle indépendance bayes',
       tds:[
-        ['Mansuy','TD','https://mathieu-mansuy.fr/pdf/PCSI5-TD23.pdf',null],
-        ['Champollion','TD 26','https://www.mp2i-champo.fr/TD/TD26.pdf',null],
-        ['Bertault','TD',BERTAULT+'Exercices%20-%20Representation%20matricielle%20des%20applications%20lineaires.pdf',BERTAULT+'Exercices%20indications%20-%20Representation%20matricielle%20des%20applications%20lineaires.pdf']
+        ['Mansuy','TD 26',M+'PCSI5-TD26.pdf',null],
+        ['Champollion','TD 27',C+'TD27.pdf',null],
+        ['Bertault','TD',B+'Exercices%20-%20Probabilites%20sur%20un%20univers%20fini.pdf',B+'Exercices%20indications%20-%20Probabilites%20sur%20un%20univers%20fini.pdf']
       ]},
-    { key:'probabilites', cat:'probabilites', n:26, title:'Probabilités finies', keywords:'probabilité univers fini événement conditionnelle indépendance bayes',
+    { key:'variables', cat:'probabilites', title:'Variables aléatoires, espérance, variance', keywords:'variable aléatoire espérance variance covariance loi binomiale',
       tds:[
-        ['Mansuy','TD','https://mathieu-mansuy.fr/pdf/PCSI5-TD25.pdf',null],
-        ['Champollion','TD 27','https://www.mp2i-champo.fr/TD/TD27.pdf',null],
-        ['Bertault','TD',BERTAULT+'Exercices%20-%20Probabilites%20sur%20un%20univers%20fini.pdf',BERTAULT+'Exercices%20indications%20-%20Probabilites%20sur%20un%20univers%20fini.pdf']
-      ]},
-    { key:'series', cat:'analyse', n:27, title:'Séries', keywords:'série convergence somme famille sommable absolue',
-      tds:[
-        ['Mansuy','TD','https://mathieu-mansuy.fr/pdf/PCSI5-TD22.pdf',null],
-        ['Champollion','TD 28','https://www.mp2i-champo.fr/TD/TD28.pdf',null],
-        ['Bertault','TD',BERTAULT+'Exercices%20-%20Series%20et%20familles%20sommables.pdf',BERTAULT+'Exercices%20indications%20-%20Series%20et%20familles%20sommables.pdf']
-      ]},
-    { key:'esperance-variance', cat:'probabilites', n:28, title:'Espérance et variance', keywords:'espérance variance covariance loi binomiale indicatrice',
-      tds:[
-        ['Mansuy','TD','https://mathieu-mansuy.fr/pdf/PCSI5-TD26.pdf',null],
-        ['Champollion','TD 29','https://www.mp2i-champo.fr/TD/TD29.pdf',null],
-        ['Bertault','TD',BERTAULT+'Exercices%20-%20Complements%20probabilistes.pdf',BERTAULT+'Exercices%20indications%20-%20Complements%20probabilistes.pdf']
-      ]},
-    { key:'integration', cat:'analyse', n:29, title:'Intégration sur un segment', keywords:'intégrale segment Riemann somme subdivisions',
-      tds:[
-        ['Mansuy','TD','https://mathieu-mansuy.fr/pdf/PCSI5-TD20.pdf',null],
-        ['Champollion','TD 30','https://www.mp2i-champo.fr/TD/TD30.pdf',null],
-        ['Bertault','TD',BERTAULT+'Exercices%20-%20Integration%20sur%20un%20segment.pdf',BERTAULT+'Exercices%20indications%20-%20Integration%20sur%20un%20segment.pdf']
-      ]},
-    { key:'prehilbertiens', cat:'algebre', n:30, title:'Espaces préhilbertiens', keywords:'préhilbertien produit scalaire orthogonal projection gram-schmidt',
-      tds:[
-        ['Mansuy','TD','https://mathieu-mansuy.fr/pdf/PCSI5-TD25.pdf',null],
-        ['Champollion','TD 31','https://www.mp2i-champo.fr/TD/TD31.pdf',null],
-        ['Bertault','TD',BERTAULT+'Exercices%20-%20Espaces%20prehilbertiens%20reels.pdf',BERTAULT+'Exercices%20indications%20-%20Espaces%20prehilbertiens%20reels.pdf']
+        ['Champollion','TD 29',C+'TD29.pdf',null],
+        ['Bertault','TD',B+'Exercices%20-%20Complements%20probabilistes.pdf',B+'Exercices%20indications%20-%20Complements%20probabilistes.pdf']
       ]}
   ];
+
+  // Numérotation automatique par catégorie (ordre d'apparition)
+  const counters = { algebre:0, analyse:0, probabilites:0 };
+  chapters.forEach(c => { counters[c.cat]++; c.num = counters[c.cat]; });
 
   const pad = n => String(n).padStart(2,'0');
   const normalize = s => s.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'');
@@ -309,7 +305,7 @@
         <div class="toc-scroller">
           ${items.map(c => `
             <a class="toc-chip" href="#td" data-open="${c.key}">
-              <span>${pad(c.n)}</span>${c.title}
+              <span>${pad(c.num)}</span>${c.title}
             </a>`).join('')}
         </div>
       </section>`;
@@ -319,7 +315,7 @@
   const chapterGrid = document.querySelector('#chapterGrid');
   chapterGrid.innerHTML = chapters.map(c => `
     <button class="chapter-card" data-chapter="${c.key}" data-search="${normalize(c.title+' '+c.keywords)}">
-      <span class="chapter-index">${pad(c.n)}</span>
+      <span class="chapter-index">${pad(c.num)}</span>
       <span class="chapter-name">${c.title}</span>
       <span class="chapter-arrow">↗</span>
     </button>`).join('');
@@ -380,7 +376,7 @@
   searchClear.addEventListener('click', () => { searchInput.value = ''; filterCards(); searchInput.focus(); });
   filterCards();
 
-  /* ===== Retour en haut (corrigé) ===== */
+  /* ===== Retour en haut ===== */
   document.querySelectorAll('a[href="#top"]').forEach(link => {
     link.addEventListener('click', e => {
       e.preventDefault();
